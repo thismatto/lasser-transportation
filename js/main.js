@@ -56,7 +56,6 @@ if (footerPlaceholder) {
     .then(response => response.text())
     .then(data => {
       footerPlaceholder.innerHTML = data;
-      // Re-initialize the Year script AFTER the footer is injected
       document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
     })
     .catch(error => console.error('Error loading footer:', error));
@@ -77,22 +76,25 @@ if (svc) {
   }
 }
 
-// 3. Booking form validation + fake submit
+// 3. Booking form validation + ACTUAL Netlify Submit
 const form = document.getElementById('bookingForm');
 if (form) {
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Stop standard page reload
+    
     let valid = true;
     form.querySelectorAll('.error').forEach(el => el.textContent = '');
+    
     const requiredFields = [
-      { name: 'name', msg: 'Please enter your full name' },
-      { name: 'email', msg: 'Enter a valid email' },
-      { name: 'phone', msg: 'Enter a valid phone' },
-      { name: 'date', msg: 'Pick a date' },
-      { name: 'service', msg: 'Pick a service' },
-      { name: 'pickup', msg: 'Enter a pickup location' },
-      { name: 'passengers', msg: 'At least 1 passenger' },
+      { name: 'name', msg: 'Please enter your full name / Por favor ingrese su nombre' },
+      { name: 'email', msg: 'Enter a valid email / Ingrese un correo válido' },
+      { name: 'phone', msg: 'Enter a valid phone / Ingrese un teléfono válido' },
+      { name: 'date', msg: 'Pick a date / Elija una fecha' },
+      { name: 'service', msg: 'Pick a service / Elija un servicio' },
+      { name: 'pickup', msg: 'Enter a pickup location / Ingrese un lugar de recogida' },
+      { name: 'passengers', msg: 'At least 1 passenger / Al menos 1 pasajero' },
     ];
+    
     requiredFields.forEach(f => {
       const input = form.elements[f.name];
       const val = (input.value || '').trim();
@@ -105,12 +107,35 @@ if (form) {
         valid = false;
       }
     });
+    
     if (!valid) return;
-    const name = form.elements.name.value.trim();
-    const successEl = document.getElementById('formSuccess');
-    successEl.hidden = false;
-    successEl.textContent = `✓ Booking received. Thanks ${name} — our dispatch team will confirm by email within 30 minutes.`;
-    form.reset();
-    window.scrollTo({ top: successEl.offsetTop - 120, behavior: 'smooth' });
+    
+    // Package data and send securely to Netlify Forms
+    const formData = new FormData(form);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      // Show Success Message
+      const name = form.elements.name.value.trim();
+      const successEl = document.getElementById('formSuccess');
+      successEl.hidden = false;
+      
+      if (isSpanish) {
+         successEl.textContent = `✓ Reserva recibida. Gracias ${name} — nuestro equipo de despacho le confirmará por correo en 30 minutos.`;
+      } else {
+         successEl.textContent = `✓ Booking received. Thanks ${name} — our dispatch team will confirm by email within 30 minutes.`;
+      }
+      
+      form.reset();
+      window.scrollTo({ top: successEl.offsetTop - 120, behavior: 'smooth' });
+    })
+    .catch(error => {
+      alert('Error submitting the form. Please try again.');
+      console.error(error);
+    });
   });
 }

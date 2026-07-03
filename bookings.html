@@ -35,7 +35,10 @@
         </div>
       </aside>
 
-      <form id="bookingForm" class="booking-form" novalidate>
+      <!-- Form updated for Netlify -->
+      <form id="bookingForm" class="booking-form" name="bookings" method="POST" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="bookings" />
+        
         <div class="form-grid">
           <div class="field col-2">
             <label>Full Name</label>
