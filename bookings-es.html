@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas — Lasser Transportation LLC</title>
+  <meta name="description" content="Reserve una camioneta, traslado o tour con Lasser Transportation LLC. El despacho bilingüe responde en 30 minutos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  
+  <!-- HEADER INJECTION PLACEHOLDER -->
+  <div id="header-placeholder"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow light">Reservar</span>
+      <h1>Reserve su viaje.</h1>
+      <p>Díganos a dónde va y cuándo. Nuestro equipo de despacho bilingüe confirma en 30 minutos durante horas laborables.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container booking-grid">
+      <aside>
+        <h2>Qué esperar</h2>
+        <p class="muted">Una vez que envíe el formulario, recibirá un correo electrónico de confirmación con los detalles de su viaje y una línea directa con despacho.</p>
+        <div class="expect-list">
+          <div><span>01</span><p>Despacho bilingüe — Inglés y Español</p></div>
+          <div><span>02</span><p>Cotizaciones gratis, sin pago previo para reservar</p></div>
+          <div><span>03</span><p>Camionetas modernas, conductores profesionales</p></div>
+          <div><span>04</span><p>Seguimiento de horarios de vuelos y cruceros</p></div>
+        </div>
+      </aside>
+
+      <form id="bookingForm" class="booking-form" novalidate>
+        <div class="form-grid">
+          <div class="field col-2">
+            <label>Nombre Completo</label>
+            <input type="text" name="name" required autocomplete="name" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Correo Electrónico</label>
+            <input type="email" name="email" required autocomplete="email" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Teléfono</label>
+            <input type="tel" name="phone" required autocomplete="tel" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Fecha</label>
+            <input type="date" name="date" required />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Pasajeros</label>
+            <input type="number" name="passengers" min="1" max="60" value="1" required />
+            <p class="error"></p>
+          </div>
+          <div class="field col-2">
+            <label>Servicio</label>
+            <select name="service" required>
+              <option value="">Seleccione un servicio…</option>
+              <option>Traslado al Aeropuerto</option>
+              <option>Traslado al Puerto</option>
+              <option>Ruta Escolar</option>
+              <option>Tour Privado de un Día</option>
+              <option>Grupo Turístico</option>
+              <option>Alquiler Privado de Camioneta</option>
+              <option>Little Havana &amp; South Beach</option>
+              <option>Everglades Safari</option>
+              <option>Elite Palm Beach</option>
+              <option>Key West Express</option>
+              <option>Miami Magic Night</option>
+            </select>
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Lugar de Recogida</label>
+            <input type="text" name="pickup" required placeholder="Ej: MIA Terminal D" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Lugar de Destino (opcional)</label>
+            <input type="text" name="dropoff" placeholder="Nombre del hotel o dirección" />
+          </div>
+          <div class="field col-2">
+            <label>Notas (equipaje, asientos para niños, idioma)</label>
+            <textarea name="notes" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-accent full">Enviar Solicitud de Reserva</button>
+        <p id="formSuccess" class="form-success" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo">Lassertransportation<span>LLC</span></span>
+        <p><em>Sirviendo a la comunidad del sur de la Florida con orgullo y profesionalismo.</em></p>
+      </div>
+      <div><h6>Navegar</h6><ul><li><a href="index-es.html">Inicio</a></li><li><a href="tours-es.html">Tours</a></li><li><a href="bookings-es.html">Reservas</a></li></ul></div>
+      <div><h6>Sede Principal</h6><p>Sur de la Florida<br /><a href="tel:+13055550199"><strong>+1 (305) 555-0199</strong></a><br /><a href="mailto:info@lassertransportation.com">info@lassertransportation.com</a></p></div>
+    </div>
+    <div class="container footer-base"><span>© <span id="year"></span> LASSER TRANSPORTATION LLC</span><span class="hide-mobile">MIA • FLL • PBI • PEV</span></div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
