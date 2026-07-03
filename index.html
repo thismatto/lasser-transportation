@@ -107,6 +107,19 @@
 
   <div id="footer-placeholder"></div>
 
+  <!-- HIDDEN DUMMY FORM TO FORCE NETLIFY DETECTION -->
+  <form name="bookings" netlify hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="date" />
+    <input type="number" name="passengers" />
+    <input type="text" name="service" />
+    <input type="text" name="pickup" />
+    <input type="text" name="dropoff" />
+    <textarea name="notes"></textarea>
+  </form>
+
   <script src="js/main.js"></script>
 </body>
 </html>
