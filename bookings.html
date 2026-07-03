@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookings — Lasser Transportation LLC</title>
+  <meta name="description" content="Reserve a van, transfer, or tour with Lasser Transportation LLC. Bilingual dispatch responds within 30 minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Lassertransportation<span>LLC</span></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="tours.html">Tours</a>
+        <a href="bookings.html" class="active">Bookings</a>
+      </nav>
+      <div class="header-right">
+        <div class="lang-toggle" aria-hidden="true"><span class="active">EN</span><span>ES</span></div>
+        <a href="bookings.html" class="btn btn-primary">Reserve</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow light">Reserve</span>
+      <h1>Book your ride.</h1>
+      <p>Tell us where you're going and when. Our bilingual dispatch team confirms within 30 minutes during business hours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container booking-grid">
+      <aside>
+        <h2>What to expect</h2>
+        <p class="muted">Once you submit, you'll get a confirmation email with your trip details and a direct line to dispatch.</p>
+        <div class="expect-list">
+          <div><span>01</span><p>Bilingual dispatch — English &amp; Spanish</p></div>
+          <div><span>02</span><p>Free quotes, no payment required to reserve</p></div>
+          <div><span>03</span><p>Modern vans, professional drivers</p></div>
+          <div><span>04</span><p>Flight &amp; cruise schedule tracking</p></div>
+        </div>
+      </aside>
+
+      <form id="bookingForm" class="booking-form" novalidate>
+        <div class="form-grid">
+          <div class="field col-2">
+            <label>Full Name</label>
+            <input type="text" name="name" required autocomplete="name" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" required autocomplete="email" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" name="phone" required autocomplete="tel" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Date</label>
+            <input type="date" name="date" required />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Passengers</label>
+            <input type="number" name="passengers" min="1" max="60" value="1" required />
+            <p class="error"></p>
+          </div>
+          <div class="field col-2">
+            <label>Service</label>
+            <select name="service" required>
+              <option value="">Select a service…</option>
+              <option>Airport Transfer</option>
+              <option>Port Transfer</option>
+              <option>School Route</option>
+              <option>Private Day Tour</option>
+              <option>Tourist Group</option>
+              <option>Private Van Charter</option>
+              <option>Little Havana &amp; South Beach</option>
+              <option>Everglades Safari</option>
+              <option>Elite Palm Beach</option>
+              <option>Key West Express</option>
+              <option>Miami Magic Night</option>
+            </select>
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Pickup Location</label>
+            <input type="text" name="pickup" required placeholder="MIA Terminal D" />
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label>Dropoff (optional)</label>
+            <input type="text" name="dropoff" placeholder="Hotel name or address" />
+          </div>
+          <div class="field col-2">
+            <label>Notes (luggage, child seats, language)</label>
+            <textarea name="notes" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-accent full">Submit Booking Request</button>
+        <p id="formSuccess" class="form-success" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo">Lassertransportation<span>LLC</span></span>
+        <p><em>Serving the South Florida community with pride and professionalism.</em></p>
+      </div>
+      <div><h6>Navigate</h6><ul><li><a href="index.html">Home</a></li><li><a href="tours.html">Tours</a></li><li><a href="bookings.html">Bookings</a></li></ul></div>
+      <div><h6>Headquarters</h6><p>South Florida<br /><a href="tel:+13055550199"><strong>+1 (305) 555-0199</strong></a><br /><a href="mailto:info@lassertransportation.com">info@lassertransportation.com</a></p></div>
+    </div>
+    <div class="container footer-base"><span>© <span id="year"></span> LASSER TRANSPORTATION LLC</span><span class="hide-mobile">MIA • FLL • PBI • PEV</span></div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
