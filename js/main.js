@@ -1,25 +1,27 @@
-// 1. Header Injection and Language Toggle Logic
+// 1. Header and Footer Injection Logic
 const headerPlaceholder = document.getElementById('header-placeholder');
-if (headerPlaceholder) {
-  
-  const currentPath = window.location.pathname;
-  const fileName = currentPath.split('/').pop() || 'index.html';
-  const isSpanish = fileName.includes('-es.html');
-  const headerFile = isSpanish ? 'header-es.html' : 'header.html';
+const footerPlaceholder = document.getElementById('footer-placeholder');
 
+const currentPath = window.location.pathname;
+const fileName = currentPath.split('/').pop() || 'index.html';
+const isSpanish = fileName.includes('-es.html');
+
+const headerFile = isSpanish ? 'header-es.html' : 'header.html';
+const footerFile = isSpanish ? 'footer-es.html' : 'footer.html';
+
+// Fetch and Inject Header
+if (headerPlaceholder) {
   fetch(headerFile)
     .then(response => response.text())
     .then(data => {
       headerPlaceholder.innerHTML = data;
 
-      // Make the mobile menu button work
       const menuBtn = document.getElementById('menuBtn');
       const mainNav = document.getElementById('mainNav');
       if (menuBtn && mainNav) {
         menuBtn.addEventListener('click', () => mainNav.classList.toggle('open'));
       }
 
-      // Automatically highlight the correct link in the menu (Home, Tours, Bookings)
       document.querySelectorAll('.main-nav a').forEach(link => {
         const linkHref = link.getAttribute('href');
         if (linkHref === fileName || (fileName === '' && linkHref === 'index.html') || (fileName === '' && linkHref === 'index-es.html')) {
@@ -29,18 +31,15 @@ if (headerPlaceholder) {
         }
       });
 
-      // Dynamic Language Toggle Logic
       const langEn = document.getElementById('lang-en');
       const langEs = document.getElementById('lang-es');
       
       if (langEn && langEs) {
         if (isSpanish) {
-          // If on a Spanish page, point the EN button back to the English page
           const englishPage = fileName.replace('-es.html', '.html');
           langEn.href = englishPage;
           langEs.href = '#';
         } else {
-          // If on an English page, point the ES button to the Spanish page
           const baseName = fileName === '' ? 'index' : fileName.replace('.html', '');
           const spanishPage = baseName + '-es.html';
           langEn.href = '#';
@@ -51,10 +50,19 @@ if (headerPlaceholder) {
     .catch(error => console.error('Error loading header:', error));
 }
 
-// 2. Year in footer
-document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
+// Fetch and Inject Footer
+if (footerPlaceholder) {
+  fetch(footerFile)
+    .then(response => response.text())
+    .then(data => {
+      footerPlaceholder.innerHTML = data;
+      // Re-initialize the Year script AFTER the footer is injected
+      document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
+    })
+    .catch(error => console.error('Error loading footer:', error));
+}
 
-// 3. Bookings: pre-fill service from ?service= URL param
+// 2. Bookings: pre-fill service from ?service= URL param
 const params = new URLSearchParams(window.location.search);
 const svc = params.get('service');
 if (svc) {
@@ -69,7 +77,7 @@ if (svc) {
   }
 }
 
-// 4. Booking form validation + fake submit
+// 3. Booking form validation + fake submit
 const form = document.getElementById('bookingForm');
 if (form) {
   form.addEventListener('submit', (e) => {
