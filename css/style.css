@@ -832,3 +832,94 @@ h3 {
     width: 100% !important;
   }
 }
+
+/* ======================================================= */
+/* DESKTOP HEADER (STAYS UNTOUCHED ON LARGE SCREENS)       */
+/* ======================================================= */
+.site-header {
+  background-color: #ffffff;
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+  z-index: 9999;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0b1f3f; /* Dark Blue */
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #b08d57; /* Gold hover effect */
+}
+
+/* HIDE THE BUTTON ON DESKTOP */
+.mobile-menu-btn {
+  display: none; 
+}
+
+
+/* ======================================================= */
+/* MOBILE HEADER OVERRIDES (ONLY APPLIES TO PHONES)        */
+/* ======================================================= */
+@media screen and (max-width: 768px) {
+  
+  /* Show the hamburger button */
+  .mobile-menu-btn {
+    display: block !important;
+    font-size: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0b1f3f;
+  }
+
+  /* Hide the horizontal links and turn them into a dropdown */
+  .nav-links {
+    display: none; /* Hidden until clicked */
+    position: absolute;
+    top: 100%; /* Pushes the menu directly below the header */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    gap: 20px;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* The JavaScript uses this class to open the menu */
+  .nav-links.open {
+    display: flex !important;
+  }
+}
