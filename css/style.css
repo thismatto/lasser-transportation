@@ -92,12 +92,12 @@ p.es { color: #888; font-size: 0.95rem; }
 .link-arrow:hover { text-decoration: underline; }
 
 /* ======================================================= */
-/* 3. NEW DESKTOP HEADER (EXACT IMAGE MATCH)               */
+/* 3. NEW DESKTOP HEADER (EXACT 3-COLUMN IMAGE MATCH)      */
 /* ======================================================= */
 .site-header {
-  background-color: var(--white);
+  background-color: #ffffff;
   width: 100%;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #e2e8f0;
   position: relative;
   z-index: 9999;
 }
@@ -106,81 +106,75 @@ p.es { color: #888; font-size: 0.95rem; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px; 
+  padding: 0 40px; 
+  height: 90px; /* Fixed height for perfect vertical centering */
   max-width: 100%;
 }
 
+/* 3-Column Layout to force perfect spacing */
+.header-left { flex: 1; display: flex; justify-content: flex-start; }
+.header-center { flex: 1; display: flex; justify-content: center; }
+.header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+
 /* LOGO: Tight spacing, bold, exact colors */
 .nav-logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 900;
-  color: var(--nav-dark);
+  color: #0f172a; /* Exact Navy */
   text-decoration: none;
   letter-spacing: -0.5px;
 }
 .logo-llc {
-  color: var(--brand-blue); 
-}
-
-.nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 30px;
+  color: #1a66ff; /* Exact Blue */
 }
 
 /* LINKS: Small, bold, spaced out */
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
 .nav-links a {
   text-decoration: none;
-  color: var(--nav-dark);
+  color: #0f172a;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 1.5px;
 }
 .nav-links a:hover, .nav-links a.active {
-  color: var(--brand-blue);
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+  color: #1a66ff;
 }
 
 /* LANG PILL MATCH */
 .lang-toggle {
-  display: flex;
+  display: inline-flex;
   background-color: #f1f5f9;
   border-radius: 30px;
   padding: 4px;
 }
-
 .lang-toggle a {
   text-decoration: none;
   color: #94a3b8;
   font-weight: 800;
   font-size: 11px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   transition: all 0.2s ease;
 }
-
 .lang-toggle a.active {
-  background-color: var(--white);
-  color: var(--nav-dark);
+  background-color: #ffffff;
+  color: #0f172a;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* RESERVE BUTTON: Sharp edges, exact navy */
 .btn-reserve {
-  background-color: var(--nav-dark);
-  color: var(--white);
+  background-color: #0f172a;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   font-size: 12px;
   letter-spacing: 2px;
-  padding: 14px 28px;
+  padding: 16px 32px;
   border-radius: 0;
   transition: background 0.3s;
 }
@@ -188,9 +182,7 @@ p.es { color: #888; font-size: 0.95rem; }
   background-color: #000000;
 }
 
-.mobile-menu-btn {
-  display: none; 
-}
+.mobile-menu-btn { display: none; }
 
 /* ======================================================= */
 /* 4. HERO SECTION                                         */
@@ -312,8 +304,12 @@ p.es { color: #888; font-size: 0.95rem; }
 
   .header-inner {
     padding: 15px 20px;
+    height: auto; /* Allow height to adjust on mobile */
   }
   
+  .header-center { flex: unset; }
+  .header-right { flex: unset; }
+
   .nav-links {
     display: none; 
     position: absolute;
