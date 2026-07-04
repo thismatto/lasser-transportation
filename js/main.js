@@ -2,7 +2,7 @@
 const favicon = document.createElement('link');
 favicon.rel = 'icon';
 favicon.type = 'image/png';
-favicon.href = 'favicon.png';
+favicon.href = 'bus-icon.png';
 document.head.appendChild(favicon);
 
 // 1. Header and Footer Injection Logic
