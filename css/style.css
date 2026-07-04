@@ -836,6 +836,9 @@ h3 {
 /* ======================================================= */
 /* DESKTOP HEADER (STAYS UNTOUCHED ON LARGE SCREENS)       */
 /* ======================================================= */
+/* ======================================================= */
+/* DESKTOP HEADER (MATCHES NEW DESIGN)                     */
+/* ======================================================= */
 .site-header {
   background-color: #ffffff;
   width: 100%;
@@ -848,35 +851,93 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 15px 40px; /* Wider padding for the new layout */
+  max-width: 100%;
 }
 
+/* LOGO STYLING */
 .nav-logo {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
-  color: #0b1f3f; /* Dark Blue */
+  color: #0b1f3f; /* Dark Navy */
   text-decoration: none;
+  letter-spacing: 0.5px;
 }
 
+.logo-llc {
+  color: #0056FF; /* Bright Blue */
+}
+
+/* CENTERED NAVIGATION */
 .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 30px;
-  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #333333;
+  color: #0b1f3f;
   font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .nav-links a:hover {
-  color: #b08d57; /* Gold hover effect */
+  color: #0056FF;
 }
 
-/* HIDE THE BUTTON ON DESKTOP */
+/* RIGHT SIDE ACTIONS */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* LANGUAGE TOGGLE PILL */
+.lang-toggle {
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 25px;
+  padding: 4px;
+}
+
+.lang-toggle a {
+  text-decoration: none;
+  color: #888888;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle a.active {
+  background-color: #ffffff;
+  color: #0b1f3f;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* RESERVE BUTTON */
+.btn-reserve {
+  background-color: #0b1f3f;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  padding: 14px 28px;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.btn-reserve:hover {
+  background-color: #1a3668;
+}
+
+/* HIDE MOBILE BUTTON ON DESKTOP */
 .mobile-menu-btn {
   display: none; 
 }
@@ -885,24 +946,18 @@ h3 {
 /* ======================================================= */
 /* MOBILE HEADER OVERRIDES (ONLY APPLIES TO PHONES)        */
 /* ======================================================= */
-@media screen and (max-width: 768px) {
-  
-  /* Show the hamburger button */
-  .mobile-menu-btn {
-    display: block !important;
-    font-size: 32px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #0b1f3f;
+@media screen and (max-width: 992px) {
+  .header-inner {
+    padding: 15px 20px;
   }
-
-  /* Hide the horizontal links and turn them into a dropdown */
+  
+  /* Reset the centered positioning on mobile so it functions as a dropdown */
   .nav-links {
     display: none; /* Hidden until clicked */
     position: absolute;
-    top: 100%; /* Pushes the menu directly below the header */
+    top: 100%; 
     left: 0;
+    transform: none; 
     width: 100%;
     background-color: #ffffff;
     flex-direction: column;
@@ -912,14 +967,25 @@ h3 {
     text-align: center;
   }
 
-  .nav-links a {
-    font-size: 18px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  /* The JavaScript uses this class to open the menu */
+  /* JavaScript uses this to open the menu */
   .nav-links.open {
     display: flex !important;
+  }
+
+  /* Show the hamburger menu button */
+  .mobile-menu-btn {
+    display: block !important;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0b1f3f;
+  }
+  
+  /* On very small screens, hide the big reserve button to make room for the logo */
+  @media screen and (max-width: 500px) {
+    .btn-reserve {
+       display: none;
+    }
   }
 }
