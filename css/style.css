@@ -750,3 +750,85 @@ h3 {
     padding: 4rem 0;
   }
 }
+
+
+
+/* ======================================================= */
+/* MOBILE DISPLAY FIXES (STRICTLY PHONES & TABLETS ONLY)   */
+/* ======================================================= */
+
+@media screen and (max-width: 768px) {
+  
+  /* 1. FORCE THE WEBSITE TO FIT THE SCREEN (No sideways scrolling) */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+  }
+
+  /* 2. FIX THE HIDDEN MENU BUTTON */
+  #menuBtn {
+    display: block !important;
+    position: relative !important;
+    z-index: 99999 !important; /* Forces it to the very front */
+    font-size: 28px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 10px !important;
+  }
+
+  /* 3. FIX THE ACTUAL NAVIGATION MENU WHEN IT OPENS */
+  #mainNav {
+    display: none; /* Hidden until clicked */
+    position: absolute !important;
+    top: 70px !important; /* Pushes it just below the header */
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+    z-index: 99998 !important;
+    padding: 20px 0 !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important;
+    text-align: center !important;
+  }
+
+  /* 4. This connects to your JavaScript to actually show the menu */
+  #mainNav.open {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  /* 5. RESIZE THE PADDING SO CONTENT DOESN'T HUG THE EDGES */
+  .container {
+    width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* 6. SHRINK GIANT DESKTOP TEXT TO FIT PHONES */
+  h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2.section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-content {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* 7. MAKE SURE GRIDS STACK ON TOP OF EACH OTHER ON PHONES */
+  .services-grid, .about-grid, .tour-preview {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .service-card, .tour-thumb {
+    width: 100% !important;
+  }
+}
