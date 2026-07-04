@@ -1,3 +1,10 @@
+// 0. Inject Favicon Dynamically
+const favicon = document.createElement('link');
+favicon.rel = 'icon';
+favicon.type = 'image/png';
+favicon.href = 'favicon.png';
+document.head.appendChild(favicon);
+
 // 1. Header and Footer Injection Logic
 const headerPlaceholder = document.getElementById('header-placeholder');
 const footerPlaceholder = document.getElementById('footer-placeholder');
