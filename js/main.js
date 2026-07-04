@@ -1,8 +1,8 @@
-// 0. Inject Favicon Dynamically
+// 0. Inject Favicon Dynamically using direct URL
 const favicon = document.createElement('link');
 favicon.rel = 'icon';
 favicon.type = 'image/png';
-favicon.href = 'bus-icon.png';
+favicon.href = 'https://cdn.shopify.com/s/files/1/0771/9652/5726/files/bus-icon_png.png?v=1783142291';
 document.head.appendChild(favicon);
 
 // 1. Header and Footer Injection Logic
