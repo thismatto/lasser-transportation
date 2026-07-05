@@ -22,12 +22,10 @@
 /* CUSTOM SCROLLBAR (Camouflaged & Modern)                 */
 /* ======================================================= */
 html {
-  /* For Firefox */
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 #ffffff; 
 }
 
-/* For Chrome, Edge, and Safari */
 ::-webkit-scrollbar {
   width: 12px; 
 }
@@ -166,27 +164,6 @@ p.es { color: #888; font-size: 0.95rem; }
   color: #1a66ff;
 }
 
-.lang-toggle {
-  display: inline-flex;
-  background-color: #f1f5f9;
-  border-radius: 30px;
-  padding: 4px;
-}
-.lang-toggle a {
-  text-decoration: none;
-  color: #94a3b8;
-  font-weight: 800;
-  font-size: 11px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: all 0.2s ease;
-}
-.lang-toggle a.active {
-  background-color: #ffffff;
-  color: #0f172a;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
 .btn-reserve {
   background-color: #0f172a;
   color: #ffffff;
@@ -264,6 +241,7 @@ p.es { color: #888; font-size: 0.95rem; }
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
+
 .service-card {
   background: var(--white);
   padding: 40px;
@@ -328,7 +306,6 @@ p.es { color: #888; font-size: 0.95rem; }
     width: 100% !important;
   }
 
-  /* Organize the top bar */
   .header-inner {
     padding: 15px 20px !important; 
     height: auto !important;
@@ -338,23 +315,19 @@ p.es { color: #888; font-size: 0.95rem; }
     flex-wrap: nowrap !important;
   }
   
-  /* Size the logo down slightly */
   .nav-logo {
     font-size: 17px !important;
     white-space: nowrap !important;
   }
 
-  /* Completely hide the big desktop text links */
   .nav-links {
     display: none !important; 
   }
   
-  /* DECLUTTER: Hide everything on the right side by default */
   .header-right > * {
     display: none !important;
   }
 
-  /* SHOW ONLY: Our specific, clean hamburger menu icon */
   .header-right .custom-mobile-btn {
     display: block !important;
     background: transparent !important;
@@ -367,7 +340,6 @@ p.es { color: #888; font-size: 0.95rem; }
     line-height: 1 !important;
   }
 
-  /* The Dropdown Menu styling (Clean, dark, elegant) */
   .custom-mobile-menu {
     display: none !important; 
     position: absolute;
@@ -382,7 +354,6 @@ p.es { color: #888; font-size: 0.95rem; }
     z-index: 99999;
   }
   
-  /* Shown when the button is clicked */
   .custom-mobile-menu.active {
     display: flex !important;
   }
@@ -402,7 +373,6 @@ p.es { color: #888; font-size: 0.95rem; }
     border-bottom: none;
   }
 
-  /* Special styling for the cloned Reserve button inside the menu */
   .custom-mobile-menu a.mobile-reserve-link {
     background-color: var(--brand-blue);
     color: var(--white);
@@ -423,14 +393,53 @@ p.es { color: #888; font-size: 0.95rem; }
     flex-direction: column;
   }
   
-  .about-grid, .services-grid, .tour-preview, .row-between {
+  /* Generic mobile stacking for other grids */
+  .about-grid, .tour-preview, .row-between {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 30px !important;
   }
-
-  .service-card, .tour-thumb {
+  
+  .tour-thumb {
     width: 100% !important;
+  }
+
+  /* ======================================================= */
+  /* HORIZONTAL SWIPE CAROUSEL FOR SERVICES (MOBILE ONLY)    */
+  /* ======================================================= */
+  .services-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 15px !important;
+    padding-bottom: 20px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+  }
+  
+  /* Hides scrollbar in Chrome/Safari */
+  .services-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Compresses the cards to fit perfectly and snap into place */
+  .service-card {
+    min-width: 85% !important; 
+    width: 85% !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
+    padding: 25px !important; /* Smaller, tighter padding for mobile */
+  }
+
+  .service-card .num {
+    font-size: 1.5rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem !important;
   }
 }
