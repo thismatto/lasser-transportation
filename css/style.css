@@ -1,14 +1,14 @@
 /* ======================================================= */
-/* 1. BASE VARIABLES & EXACT THEME COLORS                  */
+/* 1. BASE VARIABLES & ORIGINAL THEME COLORS               */
 /* ======================================================= */
 :root {
-  --nav-dark: #0f172a; /* Exact Dark Slate Navy from your image */
-  --brand-blue: #1a66ff; /* Exact Vibrant Blue from your image */
+  --nav-dark: #0b1f3f;
+  --gold: #b08d57;
   --text-dark: #333333;
   --text-light: #666666;
   --bg-light: #f9f9f9;
   --white: #ffffff;
-  --font-main: 'Inter', Arial, sans-serif;
+  --font-main: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -54,26 +54,26 @@ p.es { color: #888; font-size: 0.95rem; }
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--brand-blue); 
+  color: var(--gold);
   margin-bottom: 15px;
 }
-.eyebrow.dark { color: var(--brand-blue); }
+.eyebrow.dark { color: var(--nav-dark); }
 
 .btn {
   display: inline-block;
   padding: 15px 30px;
   font-weight: 600;
   text-decoration: none;
+  border-radius: 4px;
   transition: all 0.3s ease;
   cursor: pointer;
-  border-radius: 0; /* Sharp corners */
 }
 .btn-primary {
-  background-color: var(--brand-blue); 
+  background-color: var(--gold);
   color: var(--white);
 }
 .btn-primary:hover {
-  background-color: #0d4ed8; 
+  background-color: #9a7b4c;
 }
 .btn-outline-light {
   border: 2px solid var(--white);
@@ -85,19 +85,19 @@ p.es { color: #888; font-size: 0.95rem; }
 }
 
 .link-arrow {
-  color: var(--brand-blue);
+  color: var(--gold);
   text-decoration: none;
   font-weight: 600;
 }
 .link-arrow:hover { text-decoration: underline; }
 
 /* ======================================================= */
-/* 3. NEW DESKTOP HEADER (EXACT 3-COLUMN IMAGE MATCH)      */
+/* 3. ORIGINAL DESKTOP HEADER                              */
 /* ======================================================= */
 .site-header {
-  background-color: #ffffff;
+  background-color: var(--white);
   width: 100%;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #eeeeee;
   position: relative;
   z-index: 9999;
 }
@@ -106,83 +106,55 @@ p.es { color: #888; font-size: 0.95rem; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px; 
-  height: 90px; /* Fixed height for perfect vertical centering */
-  max-width: 100%;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* 3-Column Layout to force perfect spacing */
-.header-left { flex: 1; display: flex; justify-content: flex-start; }
-.header-center { flex: 1; display: flex; justify-content: center; }
-.header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
-
-/* LOGO: Tight spacing, bold, exact colors */
 .nav-logo {
-  font-size: 22px;
-  font-weight: 900;
-  color: #0f172a; /* Exact Navy */
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--nav-dark);
   text-decoration: none;
-  letter-spacing: -0.5px;
-}
-.logo-llc {
-  color: #1a66ff; /* Exact Blue */
 }
 
-/* LINKS: Small, bold, spaced out */
 .nav-links {
   display: flex;
-  gap: 35px;
+  gap: 30px;
+  align-items: center;
 }
+
 .nav-links a {
   text-decoration: none;
-  color: #0f172a;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-}
-.nav-links a:hover, .nav-links a.active {
-  color: #1a66ff;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 16px;
 }
 
-/* LANG PILL MATCH */
-.lang-toggle {
-  display: inline-flex;
-  background-color: #f1f5f9;
-  border-radius: 30px;
-  padding: 4px;
+.nav-links a:hover {
+  color: var(--gold);
 }
-.lang-toggle a {
-  text-decoration: none;
-  color: #94a3b8;
+
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #cccccc;
+}
+
+.lang-switcher a {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.lang-switcher a.active {
+  color: var(--nav-dark);
   font-weight: 800;
-  font-size: 11px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: all 0.2s ease;
-}
-.lang-toggle a.active {
-  background-color: #ffffff;
-  color: #0f172a;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* RESERVE BUTTON: Sharp edges, exact navy */
-.btn-reserve {
-  background-color: #0f172a;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 2px;
-  padding: 16px 32px;
-  border-radius: 0;
-  transition: background 0.3s;
+.mobile-menu-btn {
+  display: none; 
 }
-.btn-reserve:hover {
-  background-color: #000000;
-}
-
-.mobile-menu-btn { display: none; }
 
 /* ======================================================= */
 /* 4. HERO SECTION                                         */
@@ -202,7 +174,7 @@ p.es { color: #888; font-size: 0.95rem; }
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)); /* Matched Navy Overlay */
+  background: linear-gradient(rgba(11, 31, 63, 0.8), rgba(11, 31, 63, 0.6));
 }
 .hero-content {
   position: relative;
@@ -250,7 +222,7 @@ p.es { color: #888; font-size: 0.95rem; }
   background: var(--white);
   padding: 40px;
   border: 1px solid #eee;
-  border-radius: 0;
+  border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .service-card:hover {
@@ -280,11 +252,11 @@ p.es { color: #888; font-size: 0.95rem; }
   width: 100%;
   height: 250px;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: 8px;
   margin-bottom: 15px;
 }
 .tour-thumb h4 { margin-bottom: 5px; }
-.tour-thumb span { color: var(--brand-blue); font-weight: 800; }
+.tour-thumb span { color: var(--gold); font-weight: 600; }
 
 /* ======================================================= */
 /* 6. MOBILE HEADER & DISPLAY OVERRIDES (PHONES & TABLETS) */
@@ -304,18 +276,13 @@ p.es { color: #888; font-size: 0.95rem; }
 
   .header-inner {
     padding: 15px 20px;
-    height: auto; /* Allow height to adjust on mobile */
   }
-  
-  .header-center { flex: unset; }
-  .header-right { flex: unset; }
 
   .nav-links {
     display: none; 
     position: absolute;
     top: 100%; 
     left: 0;
-    transform: none; 
     width: 100%;
     background-color: var(--white);
     flex-direction: column;
@@ -330,17 +297,19 @@ p.es { color: #888; font-size: 0.95rem; }
     display: flex !important;
   }
 
+  .lang-switcher {
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid #eeeeee;
+  }
+
   .mobile-menu-btn {
     display: block !important;
-    font-size: 28px;
+    font-size: 32px;
     background: transparent;
     border: none;
     cursor: pointer;
     color: var(--nav-dark);
-  }
-  
-  @media screen and (max-width: 600px) {
-    .btn-reserve { display: none; }
   }
 
   h1 { font-size: 2.2rem !important; }
