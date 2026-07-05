@@ -17,7 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <!-- CACHE BUSTER -->
+  <link rel="stylesheet" href="css/style.css?v=17" />
 </head>
 <body>
   
@@ -32,7 +33,8 @@
       <h1>Vans, transfers &amp; tours across South Florida.</h1>
       <p>Professional drivers. Modern fleet. Schools, tourists, cruise ports and every major airport — MIA · FLL · PBI.</p>
       <div class="hero-cta">
-        <a href="bookings.html" class="btn btn-primary">Reserve a Ride</a>
+        <!-- UPDATED LINK TO CONTACT PAGE -->
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
         <a href="tours.html" class="btn btn-outline-light">View Tours</a>
       </div>
     </div>
@@ -50,54 +52,41 @@
     </div>
   </section>
 
+  <!-- REMODELED SERVICES RECAP SECTION -->
   <section class="section section-alt">
     <div class="container">
-      <span class="eyebrow dark">Our Services</span>
-      <h2 class="section-title">What we do.</h2>
+      <div class="row-between">
+        <div>
+          <span class="eyebrow dark">Our Services</span>
+          <h2 class="section-title">What we do.</h2>
+        </div>
+        <!-- LINK READY FOR YOUR NEXT PAGE -->
+        <a href="services.html" class="link-arrow">View all services →</a>
+      </div>
+      
       <div class="services-grid">
         <article class="service-card">
           <span class="num">01</span>
-          <h3>School Transportation</h3>
-          <p>Reliable daily routes and field-trip charters for private schools and academic groups.</p>
+          <h3>Airport & Port Transfers</h3>
+          <p>Reliable meet-and-greet service for MIA, FLL, PBI, and all major South Florida cruise ports.</p>
         </article>
+        
         <article class="service-card">
           <span class="num">02</span>
-          <h3>Tourist Transport</h3>
-          <p>Local guides and comfortable vans for individuals, families and tour operators.</p>
+          <h3>Private Custom Tours</h3>
+          <p>Fully customizable, bilingual itineraries for families and groups wanting to explore the city.</p>
         </article>
+        
         <article class="service-card">
           <span class="num">03</span>
-          <h3>Port Transfers</h3>
-          <p>Direct service to and from PortMiami and Port Everglades — cruise schedules tracked.</p>
-        </article>
-        <article class="service-card">
-          <span class="num">04</span>
-          <h3>Airport Transfers</h3>
-          <p>MIA, FLL, and PBI transfers with flight tracking and meet-and-greet service.</p>
-        </article>
-        <article class="service-card">
-          <span class="num">05</span>
-          <h3>Private Van Charter</h3>
-          <p>Book the whole van for weddings, corporate events, sports teams or family trips.</p>
+          <h3>School & Event Charters</h3>
+          <p>Daily academic routes, school field trips, and full private van rentals for special events.</p>
         </article>
       </div>
     </div>
   </section>
 
   <div id="footer-placeholder"></div>
-
-  <!-- HIDDEN DUMMY FORM TO FORCE NETLIFY DETECTION -->
-  <form name="bookings" netlify hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <input type="text" name="date" />
-    <input type="number" name="passengers" />
-    <input type="text" name="service" />
-    <input type="text" name="pickup" />
-    <input type="text" name="dropoff" />
-    <textarea name="notes"></textarea>
-  </form>
 
   <script src="js/main.js"></script>
 </body>
