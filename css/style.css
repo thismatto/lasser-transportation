@@ -2,8 +2,8 @@
 /* 1. BASE VARIABLES & EXACT THEME COLORS                  */
 /* ======================================================= */
 :root {
-  --nav-dark: #0f172a; /* Exact Dark Slate Navy */
-  --brand-blue: #1a66ff; /* Exact Vibrant Blue */
+  --nav-dark: #0f172a; 
+  --brand-blue: #1a66ff; 
   --text-dark: #333333;
   --text-light: #666666;
   --bg-light: #f9f9f9;
@@ -177,11 +177,6 @@ p.es { color: #888; font-size: 0.95rem; }
   background-color: #000000;
 }
 
-/* Hide the injected mobile button by default on desktop */
-.mobile-toggle-btn {
-  display: none;
-}
-
 /* ======================================================= */
 /* 4. HERO SECTION                                         */
 /* ======================================================= */
@@ -285,31 +280,42 @@ p.es { color: #888; font-size: 0.95rem; }
 .tour-thumb span { color: var(--brand-blue); font-weight: 800; }
 
 /* ======================================================= */
-/* 6. STRICTLY MOBILE HEADER FIXES (DOES NOT TOUCH DESKTOP)*/
+/* 6. DESKTOP PROTECTION (HIDES MOBILE MENU ON BIG SCREENS)*/
+/* ======================================================= */
+.custom-mobile-btn,
+.custom-mobile-menu {
+  display: none !important;
+}
+
+/* ======================================================= */
+/* 7. STRICTLY MOBILE OVERRIDES (PHONES & TABLETS ONLY)    */
 /* ======================================================= */
 @media screen and (max-width: 992px) {
   
-  /* Stop the page from stretching sideways */
   html, body {
     overflow-x: hidden !important;
     width: 100vw !important;
     max-width: 100% !important;
   }
   
-  /* Shrink the header so it fits on a phone screen */
   .site-header {
     width: 100% !important;
   }
 
+  /* Organize the top bar */
   .header-inner {
-    padding: 10px 20px !important; 
+    padding: 15px 20px !important; 
     height: auto !important;
-    flex-wrap: wrap !important;
+    display: flex !important;
+    justify-content: space-between !important; /* Pushes logo left, menu right */
+    align-items: center !important;
+    flex-wrap: nowrap !important;
   }
   
-  /* Make the logo text smaller to fit */
+  /* Size the logo down slightly */
   .nav-logo {
-    font-size: 16px !important;
+    font-size: 17px !important;
+    white-space: nowrap !important;
   }
 
   /* Completely hide the big desktop text links */
@@ -317,50 +323,89 @@ p.es { color: #888; font-size: 0.95rem; }
     display: none !important; 
   }
   
-  /* Shrink the Reserve button so it fits next to the menu icon */
-  .btn-reserve {
-    padding: 8px 16px !important;
-    font-size: 10px !important;
-    letter-spacing: 1px !important;
+  /* DECLUTTER: Hide everything on the right side by default */
+  /* This kills the EN/ES toggle, the Reserve button, and duplicate icons */
+  .header-right > * {
+    display: none !important;
   }
 
-  /* Show the hamburger menu icon */
-  .mobile-toggle-btn {
+  /* SHOW ONLY: Our specific, clean hamburger menu icon */
+  .header-right .custom-mobile-btn {
     display: block !important;
-    background: none;
-    border: none;
-    font-size: 26px;
-    color: #0f172a;
-    cursor: pointer;
-    margin-left: 10px;
-    padding: 5px;
+    background: transparent !important;
+    border: none !important;
+    font-size: 28px !important;
+    color: #0f172a !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
   }
 
-  /* The Dropdown Menu styling (Pretty and dark) */
-  .mobile-nav-menu {
-    display: none; 
+  /* The Dropdown Menu styling (Clean, dark, elegant) */
+  .custom-mobile-menu {
+    display: none !important; /* Hidden until clicked */
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
     background-color: #0f172a;
     flex-direction: column;
     text-align: center;
     padding: 10px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 99999;
   }
   
   /* Shown when the button is clicked */
-  .mobile-nav-menu.active {
+  .custom-mobile-menu.active {
     display: flex !important;
   }
   
-  .mobile-nav-menu a {
+  .custom-mobile-menu a {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     padding: 15px 20px;
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
-  .mobile-nav-menu a:last-child {
+  .custom-mobile-menu a:last-child {
     border-bottom: none;
+  }
+
+  /* Special styling for the cloned Reserve button inside the menu */
+  .custom-mobile-menu a.mobile-reserve-link {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    margin: 15px 20px;
+    border-radius: 4px;
+    border-bottom: none;
+    padding: 15px;
+  }
+  
+  h1 { font-size: 2.2rem !important; }
+  h2, h2.section-title { font-size: 1.8rem !important; }
+  
+  .hero-content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .hero-cta {
+    flex-direction: column;
+  }
+  
+  .about-grid, .services-grid, .tour-preview, .row-between {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
+  }
+
+  .service-card, .tour-thumb {
+    width: 100% !important;
   }
 }
