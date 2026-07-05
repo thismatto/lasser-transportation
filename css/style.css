@@ -300,38 +300,59 @@ p.es { color: #888; font-size: 0.95rem; }
   .header-inner {
     padding: 15px 20px;
     height: auto; 
+    position: relative;
   }
   
   .header-center { flex: unset; }
   .header-right { flex: unset; }
 
+  /* Beautifully Styled Mobile Menu Dropdown */
   .nav-links {
     display: none; 
     position: absolute;
     top: 100%; 
     left: 0;
-    transform: none; 
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--nav-dark);
     flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    gap: 20px;
+    padding: 20px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    gap: 0;
     text-align: center;
     z-index: 99998;
   }
 
+  /* Show menu when active */
   .nav-links.open {
     display: flex !important;
   }
 
+  /* Style the links inside the mobile menu */
+  .nav-links a {
+    color: var(--white);
+    font-size: 16px;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  /* Remove border from last link */
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  /* The Hamburger Button */
   .mobile-menu-btn {
     display: block !important;
-    font-size: 28px;
+    font-size: 30px;
     background: transparent;
     border: none;
     cursor: pointer;
     color: var(--nav-dark);
+    padding: 5px 10px;
   }
   
   @media screen and (max-width: 600px) {

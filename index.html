@@ -127,5 +127,20 @@
   </form>
 
   <script src="js/main.js"></script>
+  
+  <!-- MOBILE MENU SCRIPT -->
+  <script>
+    // This listens for clicks on the hamburger icon anywhere on the document.
+    // It works perfectly even if your header is injected later via main.js!
+    document.addEventListener('click', function(e) {
+      const menuBtn = e.target.closest('.mobile-menu-btn');
+      if (menuBtn) {
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks) {
+          navLinks.classList.toggle('open');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
