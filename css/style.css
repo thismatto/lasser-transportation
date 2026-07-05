@@ -280,10 +280,11 @@ p.es { color: #888; font-size: 0.95rem; }
 .tour-thumb span { color: var(--brand-blue); font-weight: 800; }
 
 /* ======================================================= */
-/* 6. DESKTOP PROTECTION (HIDES MOBILE MENU ON BIG SCREENS)*/
+/* 6. DESKTOP PROTECTION (HIDES MOBILE MENUS ON DESKTOP)   */
 /* ======================================================= */
 .custom-mobile-btn,
-.custom-mobile-menu {
+.custom-mobile-menu,
+.mobile-menu-btn {
   display: none !important;
 }
 
@@ -307,7 +308,7 @@ p.es { color: #888; font-size: 0.95rem; }
     padding: 15px 20px !important; 
     height: auto !important;
     display: flex !important;
-    justify-content: space-between !important; /* Pushes logo left, menu right */
+    justify-content: space-between !important; 
     align-items: center !important;
     flex-wrap: nowrap !important;
   }
@@ -324,7 +325,6 @@ p.es { color: #888; font-size: 0.95rem; }
   }
   
   /* DECLUTTER: Hide everything on the right side by default */
-  /* This kills the EN/ES toggle, the Reserve button, and duplicate icons */
   .header-right > * {
     display: none !important;
   }
@@ -344,7 +344,7 @@ p.es { color: #888; font-size: 0.95rem; }
 
   /* The Dropdown Menu styling (Clean, dark, elegant) */
   .custom-mobile-menu {
-    display: none !important; /* Hidden until clicked */
+    display: none !important; 
     position: absolute;
     top: 100%;
     left: 0;
