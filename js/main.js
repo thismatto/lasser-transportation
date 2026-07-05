@@ -6,7 +6,12 @@ fetch('header.html')
   .then(data => {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
-      headerPlaceholder.innerHTML = data;
+      // OVERRIDE FOR THE NEW CONTACT PAGE
+      let updatedHeader = data.replace(/bookings\.html/g, 'contact.html');
+      updatedHeader = updatedHeader.replace(/>BOOKINGS</g, '>CONTACT<');
+      updatedHeader = updatedHeader.replace(/>RESERVE</g, '>CONTACT US<');
+      
+      headerPlaceholder.innerHTML = updatedHeader;
       // Build the mobile menu only AFTER the header is fully loaded
       initMobileMenu();
     }
@@ -20,7 +25,10 @@ fetch('footer.html')
   .then(data => {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-      footerPlaceholder.innerHTML = data;
+      // Ensure footer links also point to contact instead of bookings
+      let updatedFooter = data.replace(/bookings\.html/g, 'contact.html');
+      updatedFooter = updatedFooter.replace(/>Bookings</g, '>Contact<');
+      footerPlaceholder.innerHTML = updatedFooter;
     }
   });
 
@@ -52,11 +60,11 @@ function initMobileMenu() {
       mobileMenu.appendChild(newLink);
     });
 
-    // Copy the Reserve button into the menu so it isn't lost on mobile
+    // Copy the Reserve/Contact button into the menu so it isn't lost on mobile
     const reserveBtn = document.querySelector('.btn-reserve');
     if (reserveBtn) {
       const mobileReserve = document.createElement('a');
-      mobileReserve.href = reserveBtn.href || 'bookings.html';
+      mobileReserve.href = reserveBtn.href || 'contact.html';
       mobileReserve.innerHTML = reserveBtn.innerHTML;
       mobileReserve.className = 'mobile-reserve-link';
       mobileMenu.appendChild(mobileReserve);

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Lasser Transportation LLC</title>
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0771/9652/5726/files/bus-icon.png-modified.png?v=1783142462" />
+
+  <meta name="description" content="Contact Lasser Transportation for custom tour quotes, school transportation, and South Florida airport transfers." />
+  <link rel="canonical" href="https://lassertransportation.com/contact.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <!-- CACHE BUSTER -->
+  <link rel="stylesheet" href="css/style.css?v=16" />
+
+  <!-- CUSTOM FORM STYLING TO MAKE IT POP -->
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-info-box {
+      background: #f8fafc;
+      padding: 40px;
+      border-left: 4px solid #1a66ff;
+      margin-bottom: 30px;
+    }
+    .contact-info-box h3 {
+      font-size: 1.1rem;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      margin-top: 25px;
+    }
+    .contact-info-box h3:first-child { margin-top: 0; }
+    .contact-info-box a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a66ff;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .contact-info-box a:hover { text-decoration: underline; }
+    
+    .custom-form {
+      background: #ffffff;
+      padding: 40px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      background: #f8fafc;
+      transition: border 0.3s;
+    }
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #1a66ff;
+      background: #ffffff;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .custom-form, .contact-info-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER INJECTED HERE -->
+  <div id="header-placeholder"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="min-height: 40vh;">
+    <!-- Feel free to swap this background image out later! -->
+    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1498084988082-9382226388ce?w=1600&q=80'); background-position: center 60%;"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content text-center" style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <span class="eyebrow" style="justify-content: center;">We Are Here To Help</span>
+      <h1 style="font-size: 3rem;">Get in touch.</h1>
+      <p style="margin: 0 auto;">Need a custom quote? Have a question about our routes? Reach out today.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container contact-layout">
+      
+      <!-- LEFT SIDE: CONTACT INFO -->
+      <div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Let's plan your ride.</h2>
+        <p style="margin-bottom: 40px; font-size: 1.1rem;">Whether you are booking a family trip to Key West, arranging daily school transport, or needing a quick airport transfer, we are ready to assist you. <strong>Hablamos Español!</strong></p>
+        
+        <div class="contact-info-box">
+          <h3>Call or Text Us</h3>
+          <a href="tel:9546246005">(954) 624-6005</a>
+          
+          <h3>Email Us</h3>
+          <a href="mailto:transportationlasserllc@gmail.com" style="font-size: 1.2rem;">transportationlasserllc@gmail.com</a>
+          
+          <h3>Service Area</h3>
+          <p style="margin: 10px 0 0 0; color: #64748b; font-weight: 500;">Miami-Dade, Broward, & Palm Beach Counties.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: THE FORM -->
+      <div>
+        <form class="custom-form" action="https://formsubmit.co/transportationlasserllc@gmail.com" method="POST">
+          
+          <!-- FormSubmit Configuration Settings -->
+          <input type="hidden" name="_subject" value="New Website Inquiry - Lasser Transportation">
+          <!-- Sends user to a generic thank you page after submitting -->
+          <input type="hidden" name="_next" value="https://lassertransportation.com"> 
+          <!-- Disables Captcha for a smoother user experience -->
+          <input type="hidden" name="_captcha" value="false">
+
+          <h3 style="font-size: 1.8rem; margin-bottom: 25px;">Send a Message</h3>
+
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+
+          <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">What do you need help with?</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select an option...</option>
+              <option value="Custom Tour Quote">Custom Tour Quote</option>
+              <option value="Airport/Port Transfer">Airport or Port Transfer</option>
+              <option value="School Transportation">School Transportation</option>
+              <option value="Private Charter">Private Charter Event</option>
+              <option value="Other Question">Other Question</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message Details</label>
+            <textarea id="message" name="message" required placeholder="Please include your requested date, pickup location, and number of passengers..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; border: none; font-size: 1.1rem; padding: 18px;">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER INJECTED HERE -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
