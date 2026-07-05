@@ -17,8 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   
-  <!-- VERSION 8: CACHE BUSTER -->
-  <link rel="stylesheet" href="css/style.css?v=8" />
+  <link rel="stylesheet" href="css/style.css?v=9" />
 </head>
 <body>
   
@@ -127,57 +126,5 @@
   </form>
 
   <script src="js/main.js"></script>
-
-  <!-- CLEAN MOBILE MENU GENERATOR -->
-  <script>
-    // This script securely creates the menu without bleeding into the desktop view
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        if (!document.querySelector('.custom-mobile-menu')) {
-          const siteHeader = document.querySelector('.site-header');
-          const headerRight = document.querySelector('.header-right');
-          
-          if (siteHeader && headerRight) {
-            
-            // 1. Create the single, clean Hamburger Button
-            const toggleBtn = document.createElement('button');
-            toggleBtn.className = 'custom-mobile-btn';
-            toggleBtn.innerHTML = '&#9776;';
-            headerRight.appendChild(toggleBtn);
-            
-            // 2. Create the beautiful Dropdown Menu container
-            const mobileMenu = document.createElement('div');
-            mobileMenu.className = 'custom-mobile-menu';
-            
-            // 3. Safely copy only the desktop links
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(function(link) {
-              const newLink = document.createElement('a');
-              newLink.href = link.href;
-              newLink.innerHTML = link.innerHTML;
-              mobileMenu.appendChild(newLink);
-            });
-
-            // 4. Copy the Reserve button into the menu so it isn't lost on mobile
-            const reserveBtn = document.querySelector('.btn-reserve');
-            if (reserveBtn) {
-              const mobileReserve = document.createElement('a');
-              mobileReserve.href = reserveBtn.href || 'bookings.html';
-              mobileReserve.innerHTML = reserveBtn.innerHTML;
-              mobileReserve.className = 'mobile-reserve-link';
-              mobileMenu.appendChild(mobileReserve);
-            }
-            
-            siteHeader.appendChild(mobileMenu);
-            
-            // 5. Click logic
-            toggleBtn.addEventListener('click', function() {
-              mobileMenu.classList.toggle('active');
-            });
-          }
-        }
-      }, 300);
-    });
-  </script>
 </body>
 </html>
