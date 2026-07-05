@@ -17,8 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   
-  <!-- CACHE BUSTER ALREADY ADDED -->
-  <link rel="stylesheet" href="css/style.css?v=5" />
+  <!-- BUMPED TO v=6 SO YOUR PHONE FORCES THE NEW MENU TO SHOW UP -->
+  <link rel="stylesheet" href="css/style.css?v=6" />
 </head>
 <body>
   
@@ -127,19 +127,46 @@
   </form>
 
   <script src="js/main.js"></script>
-  
-  <!-- MOBILE MENU SCRIPT -->
+
+  <!-- SMART MOBILE MENU GENERATOR -->
   <script>
-    // This listens for clicks on the hamburger icon anywhere on the document.
-    // It works perfectly even if your header is injected later via main.js!
-    document.addEventListener('click', function(e) {
-      const menuBtn = e.target.closest('.mobile-menu-btn');
-      if (menuBtn) {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-          navLinks.classList.toggle('open');
+    // This perfectly copies your desktop links and creates a mobile dropdown menu 
+    // without you having to touch your main.js file at all!
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const headerRight = document.querySelector('.header-right');
+        const siteHeader = document.querySelector('.site-header');
+        
+        if (headerRight && !document.querySelector('.mobile-toggle-btn')) {
+          
+          // 1. Create the Hamburger Icon
+          const toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-toggle-btn';
+          toggleBtn.innerHTML = '&#9776;';
+          headerRight.appendChild(toggleBtn);
+          
+          // 2. Create the beautiful Dropdown Menu container
+          const mobileNav = document.createElement('div');
+          mobileNav.className = 'mobile-nav-menu';
+          
+          // Copy the links from the desktop version
+          const desktopLinks = document.querySelectorAll('.nav-links a');
+          desktopLinks.forEach(function(link) {
+            const newLink = document.createElement('a');
+            newLink.href = link.href;
+            newLink.innerHTML = link.innerHTML;
+            mobileNav.appendChild(newLink);
+          });
+          
+          // Add it to the header
+          siteHeader.appendChild(mobileNav);
+          
+          // 3. Make the button open and close the menu
+          toggleBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+          });
         }
-      }
+      }, 300); // 300ms wait ensures main.js has time to put the header on the page first
     });
   </script>
 </body>

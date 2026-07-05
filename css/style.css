@@ -177,7 +177,10 @@ p.es { color: #888; font-size: 0.95rem; }
   background-color: #000000;
 }
 
-.mobile-menu-btn { display: none; }
+/* Hide the injected mobile button by default on desktop */
+.mobile-toggle-btn {
+  display: none;
+}
 
 /* ======================================================= */
 /* 4. HERO SECTION                                         */
@@ -282,102 +285,82 @@ p.es { color: #888; font-size: 0.95rem; }
 .tour-thumb span { color: var(--brand-blue); font-weight: 800; }
 
 /* ======================================================= */
-/* 6. MOBILE HEADER & DISPLAY OVERRIDES (PHONES & TABLETS) */
+/* 6. STRICTLY MOBILE HEADER FIXES (DOES NOT TOUCH DESKTOP)*/
 /* ======================================================= */
 @media screen and (max-width: 992px) {
   
+  /* Stop the page from stretching sideways */
   html, body {
     overflow-x: hidden !important;
     width: 100vw !important;
     max-width: 100% !important;
   }
-
-  .container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+  
+  /* Shrink the header so it fits on a phone screen */
+  .site-header {
+    width: 100% !important;
   }
 
   .header-inner {
-    padding: 15px 20px;
-    height: auto; 
-    position: relative;
+    padding: 10px 20px !important; 
+    height: auto !important;
+    flex-wrap: wrap !important;
   }
   
-  .header-center { flex: unset; }
-  .header-right { flex: unset; }
+  /* Make the logo text smaller to fit */
+  .nav-logo {
+    font-size: 16px !important;
+  }
 
-  /* Beautifully Styled Mobile Menu Dropdown */
+  /* Completely hide the big desktop text links */
   .nav-links {
-    display: none; 
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    width: 100%;
-    background-color: var(--nav-dark);
-    flex-direction: column;
-    padding: 20px 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    gap: 0;
-    text-align: center;
-    z-index: 99998;
-  }
-
-  /* Show menu when active */
-  .nav-links.open {
-    display: flex !important;
-  }
-
-  /* Style the links inside the mobile menu */
-  .nav-links a {
-    color: var(--white);
-    font-size: 16px;
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: none !important; 
   }
   
-  /* Remove border from last link */
-  .nav-links a:last-child {
-    border-bottom: none;
+  /* Shrink the Reserve button so it fits next to the menu icon */
+  .btn-reserve {
+    padding: 8px 16px !important;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
   }
 
-  .nav-links a:hover, .nav-links a.active {
-    background-color: rgba(255,255,255,0.05);
-  }
-
-  /* The Hamburger Button */
-  .mobile-menu-btn {
+  /* Show the hamburger menu icon */
+  .mobile-toggle-btn {
     display: block !important;
-    font-size: 30px;
-    background: transparent;
+    background: none;
     border: none;
+    font-size: 26px;
+    color: #0f172a;
     cursor: pointer;
-    color: var(--nav-dark);
-    padding: 5px 10px;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .btn-reserve { display: none; }
+    margin-left: 10px;
+    padding: 5px;
   }
 
-  h1 { font-size: 2.2rem !important; }
-  h2, h2.section-title { font-size: 1.8rem !important; }
-  
-  .hero-content {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  .hero-cta {
+  /* The Dropdown Menu styling (Pretty and dark) */
+  .mobile-nav-menu {
+    display: none; 
+    width: 100%;
+    background-color: #0f172a;
     flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
   }
   
-  .about-grid, .services-grid, .tour-preview, .row-between {
+  /* Shown when the button is clicked */
+  .mobile-nav-menu.active {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 30px !important;
   }
-
-  .service-card, .tour-thumb {
-    width: 100% !important;
+  
+  .mobile-nav-menu a {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .mobile-nav-menu a:last-child {
+    border-bottom: none;
   }
 }
