@@ -15,81 +15,177 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   
   <!-- CACHE BUSTER -->
-  <link rel="stylesheet" href="css/style.css?v=20" />
+  <link rel="stylesheet" href="css/style.css?v=21" />
+
+  <!-- CUSTOM WOW FACTOR STYLING -->
+  <style>
+    /* Side-by-side intro layout */
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .intro-layout img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      object-fit: cover;
+      height: 400px;
+    }
+    
+    /* Overriding the basic service cards for a premium look */
+    .service-card {
+      padding: 0 !important;
+      border: none !important;
+      border-radius: 12px !important;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
+    }
+    .service-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .service-card-content {
+      padding: 35px 30px 30px;
+      position: relative;
+      flex-grow: 1;
+      background: #ffffff;
+    }
+    /* Turns the plain numbers into floating badges */
+    .service-card .num {
+      position: absolute !important;
+      top: -25px;
+      right: 30px;
+      background: #1a66ff;
+      color: #ffffff !important;
+      width: 50px;
+      height: 50px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.2rem !important;
+      font-weight: 800;
+      margin: 0 !important;
+      box-shadow: 0 4px 15px rgba(26, 102, 255, 0.4);
+    }
+    
+    @media screen and (max-width: 992px) {
+      .intro-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .intro-layout img {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
   
   <!-- THE HEADER WILL BE INJECTED RIGHT HERE -->
   <div id="header-placeholder"></div>
 
-  <!-- HERO SECTION WITH FOREST BACKGROUND & HOME THEME -->
+  <!-- HERO SECTION -->
   <section class="hero" style="min-height: 50vh;">
-    <!-- Clean, professional highway/travel background cutting through a deep forest -->
     <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1449844908441-8829872d2607?w=1600&q=80'); background-position: center;"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <span class="eyebrow">Professional & Reliable</span>
       <h1>Comprehensive Transportation.</h1>
-      <!-- REMODELED THE TEXT BELOW TO MATCH THE FOREST/HOME THEME -->
       <p>Whether your journey takes you deep into the peaceful forest or through the heart of the busy city, our professional drivers ensure you always arrive safely home.</p>
     </div>
   </section>
 
-  <!-- INTRO TEXT -->
+  <!-- UPGRADED INTRO SECTION -->
   <section class="section">
-    <div class="container text-center" style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Built for every occasion.</h2>
-      <p style="font-size: 1.1rem; color: #64748b;">
-        Lasser Transportation LLC is equipped to handle groups of all sizes. Whether you need a simple airport drop-off, a dedicated shuttle for your corporate event, or a completely private charter for the day, our bilingual drivers ensure a safe, punctual, and comfortable ride across South Florida.
-      </p>
+    <div class="container intro-layout">
+      <div>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Built for every occasion.</h2>
+        <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 20px;">
+          Lasser Transportation LLC is equipped to handle groups of all sizes. Whether you need a simple airport drop-off, a dedicated shuttle for your corporate event, or a completely private charter for the day, our bilingual drivers ensure a safe, punctual, and comfortable ride across South Florida.
+        </p>
+        <p style="font-size: 1.1rem; color: #64748b;">
+          We take the stress out of the logistics so you can focus entirely on your destination.
+        </p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1629851608625-f09b2e2d9ff6?w=800&q=80" alt="Professional Transportation Service" />
+      </div>
     </div>
   </section>
 
-  <!-- FULL SERVICES GRID -->
+  <!-- UPGRADED SERVICES GRID -->
   <section class="section section-alt">
     <div class="container">
-      <div style="margin-bottom: 40px;">
+      <div style="margin-bottom: 50px;">
         <span class="eyebrow dark">What We Do</span>
         <h2 class="section-title" style="margin-bottom: 0;">Our Services.</h2>
       </div>
       
-      <!-- This will use the beautiful 3-column desktop grid & horizontal mobile swipe -->
-      <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
         
         <article class="service-card">
-          <span class="num">01</span>
-          <h3>Airport Transfers</h3>
-          <p>Start or end your trip stress-free. We provide punctual meet-and-greet drop-offs and pickups for Miami International (MIA), Fort Lauderdale (FLL), and Palm Beach (PBI).</p>
-        </article>
-        
-        <article class="service-card">
-          <span class="num">02</span>
-          <h3>Cruise Port Transfers</h3>
-          <p>Heading out to sea? We track your cruise schedule and provide direct group transportation to and from PortMiami and Port Everglades with plenty of room for luggage.</p>
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80" alt="Airport Transfers" class="service-card-img" />
+          <div class="service-card-content">
+            <span class="num">01</span>
+            <h3>Airport Transfers</h3>
+            <p>Start or end your trip stress-free. We provide punctual meet-and-greet drop-offs and pickups for Miami International (MIA), Fort Lauderdale (FLL), and Palm Beach (PBI).</p>
+          </div>
         </article>
         
         <article class="service-card">
-          <span class="num">03</span>
-          <h3>School Transportation</h3>
-          <p>Safety is our top priority. We offer highly reliable daily routes for students, as well as dedicated charter vans for school field trips and academic group travel.</p>
+          <img src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=800&q=80" alt="Cruise Port Transfers" class="service-card-img" />
+          <div class="service-card-content">
+            <span class="num">02</span>
+            <h3>Cruise Port Transfers</h3>
+            <p>Heading out to sea? We track your cruise schedule and provide direct group transportation to and from PortMiami and Port Everglades with plenty of room for luggage.</p>
+          </div>
+        </article>
+        
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="School Transportation" class="service-card-img" />
+          <div class="service-card-content">
+            <span class="num">03</span>
+            <h3>School Transportation</h3>
+            <p>Safety is our top priority. We offer highly reliable daily routes for students, as well as dedicated charter vans for school field trips and academic group travel.</p>
+          </div>
         </article>
 
         <article class="service-card">
-          <span class="num">04</span>
-          <h3>Wedding Transportation</h3>
-          <p>Ensure your guests arrive on time and in style. We offer dedicated shuttle services between hotels, venues, and receptions for your bridal party and guests.</p>
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding Transportation" class="service-card-img" />
+          <div class="service-card-content">
+            <span class="num">04</span>
+            <h3>Wedding Transportation</h3>
+            <p>Ensure your guests arrive on time and in style. We offer dedicated shuttle services between hotels, venues, and receptions for your bridal party and guests.</p>
+          </div>
         </article>
 
         <article class="service-card">
-          <span class="num">05</span>
-          <h3>Event Shuttles</h3>
-          <p>Perfect for corporate retreats, sports teams, concerts, or large family reunions. We can coordinate shuttle loops to keep your entire group moving efficiently.</p>
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80" alt="Event Shuttles" class="service-card-img" />
+          <div class="service-card-content">
+            <span class="num">05</span>
+            <h3>Event Shuttles</h3>
+            <p>Perfect for corporate retreats, sports teams, concerts, or large family reunions. We can coordinate shuttle loops to keep your entire group moving efficiently.</p>
+          </div>
         </article>
 
         <article class="service-card">
-          <span class="num">06</span>
-          <h3>Private Charters</h3>
-          <p>Need a vehicle at your disposal? Rent our modern vans and professional drivers by the hour or the day for a completely customized transportation experience.</p>
+          <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80" alt="Private Charters" class="service-card-img" />
+          <div class="service-card-content">
+            <span class="num">06</span>
+            <h3>Private Charters</h3>
+            <p>Need a vehicle at your disposal? Rent our modern vans and professional drivers by the hour or the day for a completely customized transportation experience.</p>
+          </div>
         </article>
 
       </div>
