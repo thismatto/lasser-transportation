@@ -1,126 +1,445 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tours & Excursions — Lasser Transportation LLC</title>
+/* ======================================================= */
+/* 1. BASE VARIABLES & EXACT THEME COLORS                  */
+/* ======================================================= */
+:root {
+  --nav-dark: #0f172a; 
+  --brand-blue: #1a66ff; 
+  --text-dark: #333333;
+  --text-light: #666666;
+  --bg-light: #f9f9f9;
+  --white: #ffffff;
+  --font-main: 'Inter', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======================================================= */
+/* CUSTOM SCROLLBAR (Camouflaged & Modern)                 */
+/* ======================================================= */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #ffffff; 
+}
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; 
+  border-radius: 10px;
+  border: 3px solid #ffffff; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; 
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ======================================================= */
+/* 2. TYPOGRAPHY & BUTTONS                                 */
+/* ======================================================= */
+h1, h2, h3, h4 {
+  color: var(--nav-dark);
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+h1 { font-size: 3.5rem; font-weight: 800; color: var(--white); }
+h2 { font-size: 2.5rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+
+p { margin-bottom: 20px; color: var(--text-light); }
+p.es { color: #888; font-size: 0.95rem; }
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--brand-blue); 
+  margin-bottom: 15px;
+}
+.eyebrow.dark { color: var(--brand-blue); }
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 0; 
+}
+.btn-primary {
+  background-color: var(--brand-blue); 
+  color: var(--white);
+}
+.btn-primary:hover {
+  background-color: #0d4ed8; 
+}
+.btn-outline-light {
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+.btn-outline-light:hover {
+  background-color: var(--white);
+  color: var(--nav-dark);
+}
+
+.link-arrow {
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.link-arrow:hover { text-decoration: underline; }
+
+/* ======================================================= */
+/* 3. NEW DESKTOP HEADER                                   */
+/* ======================================================= */
+.site-header {
+  background-color: #ffffff;
+  width: 100%;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 9999;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px; 
+  height: 90px; 
+  max-width: 100%;
+}
+
+.header-left { flex: 1; display: flex; justify-content: flex-start; }
+.header-center { flex: 1; display: flex; justify-content: center; }
+.header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a; 
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.logo-llc {
+  color: #1a66ff; 
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: #1a66ff;
+}
+
+.btn-reserve {
+  background-color: #0f172a;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 16px 32px;
+  border-radius: 0;
+  transition: background 0.3s;
+}
+.btn-reserve:hover {
+  background-color: #000000;
+}
+
+/* ======================================================= */
+/* 4. HERO SECTION                                         */
+/* ======================================================= */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)); 
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  max-width: 800px;
+}
+.hero-content p {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.hero-cta {
+  display: flex;
+  gap: 15px;
+}
+
+/* ======================================================= */
+/* 5. SECTIONS & GRIDS                                     */
+/* ======================================================= */
+.section { padding: 100px 0; }
+.section-alt { background-color: var(--bg-light); }
+.section-title { margin-bottom: 40px; }
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 40px;
+  border: 1px solid #eee;
+  border-radius: 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.service-card .num {
+  font-family: var(--font-mono);
+  color: #cccccc;
+  font-size: 2rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.tour-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.tour-thumb {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.tour-thumb img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0;
+  margin-bottom: 15px;
+}
+.tour-thumb h4 { margin-bottom: 5px; }
+.tour-thumb span { color: var(--brand-blue); font-weight: 800; }
+
+/* ======================================================= */
+/* 6. DESKTOP PROTECTION (HIDES MOBILE MENUS ON DESKTOP)   */
+/* ======================================================= */
+.custom-mobile-btn,
+.custom-mobile-menu,
+.mobile-menu-btn {
+  display: none !important;
+}
+
+/* ======================================================= */
+/* 7. STRICTLY MOBILE OVERRIDES (PHONES & TABLETS ONLY)    */
+/* ======================================================= */
+@media screen and (max-width: 992px) {
   
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0771/9652/5726/files/bus-icon.png-modified.png?v=1783142462" />
-
-  <meta name="description" content="Explore South Florida with Lasser Transportation. Custom private tours to Miami, Key West, the Everglades, and more." />
-  <meta property="og:title" content="South Florida Tours | Lasser Transportation LLC" />
-  <meta property="og:description" content="Custom private tours to Miami, Key West, the Everglades, and more." />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://lassertransportation.com/tours.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+  }
   
-  <!-- CACHE BUSTER -->
-  <link rel="stylesheet" href="css/style.css?v=16" />
-</head>
-<body>
+  .site-header {
+    width: 100% !important;
+  }
+
+  .header-inner {
+    padding: 15px 20px !important; 
+    height: auto !important;
+    display: flex !important;
+    justify-content: space-between !important; 
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
   
-  <!-- THE HEADER WILL BE INJECTED RIGHT HERE BY MAIN.JS -->
-  <div id="header-placeholder"></div>
+  .nav-logo {
+    font-size: 17px !important;
+    white-space: nowrap !important;
+  }
 
-  <!-- HERO SECTION -->
-  <section class="hero" style="min-height: 60vh;">
-    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?w=1600&q=80'); background-position: center 30%;"></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <span class="eyebrow">Discover the Magic</span>
-      <h1>Private South Florida Tours.</h1>
-      <p>From the vibrant streets of Wynwood to the crystal waters of Key West, experience Florida your way.</p>
-    </div>
-  </section>
+  .nav-links {
+    display: none !important; 
+  }
+  
+  .header-right > * {
+    display: none !important;
+  }
 
-  <!-- HOW IT WORKS & PRICING -->
-  <section class="section">
-    <div class="container about-grid">
-      <div>
-        <span class="eyebrow dark">How It Works</span>
-        <h2>Custom itineraries. Personalized pricing.</h2>
-      </div>
-      <div class="about-text">
-        <p>Because every group is unique, we do not have set prices for our tours. Your final rate is carefully calculated based on your specific pickup location, the destinations you want to visit, and the number of people in your party.</p>
-        <p style="font-weight: 600; color: #0f172a;">To get your custom quote, please reach out to us prior to your requested tour date, and we will build the perfect package for your group!</p>
-        <!-- UPDATED BUTTON: NOW POINTS TO CONTACT PAGE -->
-        <a href="contact.html" class="btn btn-primary" style="margin-top: 15px;">Contact Us</a>
-      </div>
-    </div>
-  </section>
+  .header-right .custom-mobile-btn {
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 28px !important;
+    color: #0f172a !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
 
-  <!-- DESTINATIONS GRID -->
-  <section class="section section-alt">
-    <div class="container">
-      <span class="eyebrow dark">Popular Destinations</span>
-      <h2 class="section-title">Where we go.</h2>
-      
-      <div class="tour-preview" style="row-gap: 50px;">
-        
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_163900.png?v=1783283955" alt="Little Havana" />
-          <h4>Little Havana</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">Experience authentic Cuban culture, vibrant street life, and world-famous cuisine on Calle Ocho.</p>
-        </div>
+  .custom-mobile-menu {
+    display: none !important; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 99999;
+  }
+  
+  .custom-mobile-menu.active {
+    display: flex !important;
+  }
+  
+  .custom-mobile-menu a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .custom-mobile-menu a:last-child {
+    border-bottom: none;
+  }
 
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_163941.png?v=1783283992" alt="Wynwood" />
-          <h4>Wynwood Art District</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">Walk through one of the world’s largest open-air street art installations and unique galleries.</p>
-        </div>
+  .custom-mobile-menu a.mobile-reserve-link {
+    background-color: var(--brand-blue);
+    color: var(--white);
+    margin: 15px 20px;
+    border-radius: 4px;
+    border-bottom: none;
+    padding: 15px;
+  }
+  
+  h1 { font-size: 2.2rem !important; }
+  h2, h2.section-title { font-size: 1.8rem !important; }
+  
+  .hero-content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .hero-cta {
+    flex-direction: column;
+  }
+  
+  /* Generic mobile stacking for other grids */
+  .about-grid, .row-between {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
+  }
 
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_164009.png?v=1783284021" alt="South Beach" />
-          <h4>South Beach Miami</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">Take in the iconic pastel Art Deco architecture, Ocean Drive, and the world-famous coastline.</p>
-        </div>
+  /* ======================================================= */
+  /* HORIZONTAL SWIPE CAROUSEL (SERVICES & TOURS ON MOBILE)  */
+  /* ======================================================= */
+  .services-grid, .tour-preview {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 15px !important;
+    padding-bottom: 20px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+  }
+  
+  /* Hides scrollbar in Chrome/Safari */
+  .services-grid::-webkit-scrollbar,
+  .tour-preview::-webkit-scrollbar {
+    display: none;
+  }
 
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_164100.png?v=1783284070" alt="Everglades" />
-          <h4>The Everglades</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">Step into the wild with an unforgettable airboat ride through Florida's famous swamps.</p>
-        </div>
+  /* Compresses the cards to fit perfectly and snap into place */
+  .service-card, .tour-thumb {
+    min-width: 85% !important; 
+    width: 85% !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center;
+  }
 
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_164127.png?v=1783284097" alt="Key West" />
-          <h4>Key West Express</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">A scenic, breathtaking drive down the Overseas Highway to the southernmost point in the USA.</p>
-        </div>
+  .service-card {
+    padding: 25px !important; /* Smaller, tighter padding for mobile cards */
+  }
 
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_164158.png?v=1783284132" alt="Fort Lauderdale" />
-          <h4>Fort Lauderdale Beach</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">Enjoy the beautiful promenades, upscale dining, and the famous Venice-like canals.</p>
-        </div>
-        
-        <div class="tour-thumb">
-          <img src="https://cdn.shopify.com/s/files/1/0741/4575/9401/files/Screenshot_2026-07-05_164301.png?v=1783284191" alt="Bayside Marketplace" />
-          <h4>Bayside Marketplace</h4>
-          <p style="font-size: 0.9rem; margin-top: 5px;">Shop, dine, and catch stunning views of the Miami skyline right on the waterfront.</p>
-        </div>
+  .service-card .num {
+    font-size: 1.5rem !important;
+    margin-bottom: 10px !important;
+  }
 
-      </div>
-    </div>
-  </section>
-
-  <!-- CUSTOM TOUR BANNER -->
-  <section class="section">
-    <div class="container text-center" style="text-align: center; max-width: 800px;">
-      <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Want to go somewhere else?</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 30px;">
-        You are not limited to our popular destinations. Whether you want to mix and match multiple spots or have a completely unique itinerary in mind, we offer fully customizable tours tailored exactly to what your group wants to do.
-      </p>
-      <!-- UPDATED BUTTON: NOW POINTS TO CONTACT PAGE -->
-      <a href="contact.html" class="btn btn-primary">Plan Your Custom Tour</a>
-    </div>
-  </section>
-
-  <!-- THE FOOTER WILL BE INJECTED RIGHT HERE BY MAIN.JS -->
-  <div id="footer-placeholder"></div>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+  .service-card h3 {
+    font-size: 1.2rem !important;
+  }
+}
