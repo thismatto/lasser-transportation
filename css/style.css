@@ -115,7 +115,7 @@ p.es { color: #888; font-size: 0.95rem; }
 .link-arrow:hover { text-decoration: underline; }
 
 /* ======================================================= */
-/* 3. NEW DESKTOP HEADER (EXACT 3-COLUMN IMAGE MATCH)      */
+/* 3. NEW DESKTOP HEADER                                   */
 /* ======================================================= */
 .site-header {
   background-color: #ffffff;
@@ -394,44 +394,51 @@ p.es { color: #888; font-size: 0.95rem; }
   }
   
   /* Generic mobile stacking for other grids */
-  .about-grid, .tour-preview, .row-between {
+  .about-grid, .row-between {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 30px !important;
   }
-  
-  .tour-thumb {
-    width: 100% !important;
-  }
 
   /* ======================================================= */
-  /* HORIZONTAL SWIPE CAROUSEL FOR SERVICES (MOBILE ONLY)    */
+  /* BUG FIX: BULLETPROOF HORIZONTAL SWIPE CAROUSEL          */
   /* ======================================================= */
-  .services-grid {
+  .services-grid, 
+  .tour-preview {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    gap: 15px !important;
-    padding-bottom: 20px !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    overflow-x: scroll !important; /* Force the scrollbar track */
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 20px !important;
+    padding-bottom: 30px !important; /* Extra padding so shadows don't cut off */
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important; /* Hides scrollbar in Firefox */
+    width: 100% !important;
   }
   
   /* Hides scrollbar in Chrome/Safari */
-  .services-grid::-webkit-scrollbar {
-    display: none;
+  .services-grid::-webkit-scrollbar,
+  .tour-preview::-webkit-scrollbar {
+    display: none !important;
   }
 
-  /* Compresses the cards to fit perfectly and snap into place */
-  .service-card {
-    min-width: 85% !important; 
+  /* Force cards to exactly 85% width and stop them from shrinking */
+  .service-card, 
+  .tour-thumb {
+    flex: 0 0 85% !important; 
     width: 85% !important;
-    flex-shrink: 0 !important;
-    scroll-snap-align: center;
-    padding: 25px !important; /* Smaller, tighter padding for mobile */
+    max-width: 85% !important;
+    scroll-snap-align: center !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  /* Specific padding reset just in case previous cards conflicted */
+  .service-card {
+    padding: 25px !important; 
   }
 
   .service-card .num {
