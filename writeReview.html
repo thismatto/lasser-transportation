@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write a Review — Lasser Transportation LLC</title>
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0771/9652/5726/files/bus-icon.png-modified.png?v=1783142462" />
+
+  <meta name="description" content="Leave a review for Lasser Transportation LLC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <!-- CACHE BUSTER -->
+  <link rel="stylesheet" href="css/style.css?v=25" />
+
+  <!-- CUSTOM FORM STYLES TO MAKE IT PRETTY -->
+  <style>
+    .review-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #334155;
+      transition: border-color 0.3s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #1a66ff;
+      box-shadow: 0 0 0 3px rgba(26, 102, 255, 0.1);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- THE HEADER WILL BE INJECTED RIGHT HERE BY MAIN.JS -->
+  <div id="header-placeholder"></div>
+
+  <!-- SHORT HERO SECTION -->
+  <section class="hero" style="min-height: 30vh;">
+    <div class="hero-bg" style="background-color: #0f172a;"></div> <!-- Solid dark blue background -->
+    <div class="hero-overlay"></div>
+    <div class="container hero-content" style="padding-top: 80px;">
+      <h1>Share Your Experience</h1>
+      <p>We'd love to hear about your ride with Lasser Transportation.</p>
+    </div>
+  </section>
+
+  <!-- REVIEW FORM SECTION -->
+  <section class="section section-alt">
+    <div class="container text-center">
+      
+      <div class="review-form-container">
+        <!-- ACTION URL: Replace with your Formspree link later -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+          
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Maria G." required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email (We won't publish this)</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="maria@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" class="form-control" required>
+              <option value="5 Stars">&#9733;&#9733;&#9733;&#9733;&#9733; 5 Stars - Excellent</option>
+              <option value="4 Stars">&#9733;&#9733;&#9733;&#9733;&#9734; 4 Stars - Very Good</option>
+              <option value="3 Stars">&#9733;&#9733;&#9733;&#9734;&#9734; 3 Stars - Average</option>
+              <option value="2 Stars">&#9733;&#9733;&#9734;&#9734;&#9734; 2 Stars - Poor</option>
+              <option value="1 Star">&#9733;&#9734;&#9734;&#9734;&#9734; 1 Star - Terrible</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Review</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your trip..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1.1rem; padding: 15px;">Submit Review</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE FOOTER WILL BE INJECTED RIGHT HERE BY MAIN.JS -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
