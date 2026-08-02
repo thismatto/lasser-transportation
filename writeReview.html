@@ -8,109 +8,96 @@
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0771/9652/5726/files/bus-icon.png-modified.png?v=1783142462" />
 
-  <meta name="description" content="Leave a review for Lasser Transportation LLC." />
+  <meta name="description" content="Share your experience with Lasser Transportation LLC. We value your feedback to help us continue providing the best transportation in South Florida." />
+  <meta property="og:title" content="Write a Review | Lasser Transportation LLC" />
+  <meta property="og:description" content="Share your experience with Lasser Transportation LLC. We value your feedback!" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://lassertransportation.com/WriteReview.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   
   <!-- CACHE BUSTER -->
   <link rel="stylesheet" href="css/style.css?v=25" />
-
-  <!-- CUSTOM FORM STYLES TO MAKE IT PRETTY -->
-  <style>
-    .review-form-container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-    }
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-    .form-control {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      color: #334155;
-      transition: border-color 0.3s ease;
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: #1a66ff;
-      box-shadow: 0 0 0 3px rgba(26, 102, 255, 0.1);
-    }
-    textarea.form-control {
-      resize: vertical;
-      min-height: 120px;
-    }
-  </style>
 </head>
 <body>
   
   <!-- THE HEADER WILL BE INJECTED RIGHT HERE BY MAIN.JS -->
   <div id="header-placeholder"></div>
 
-  <!-- SHORT HERO SECTION -->
-  <section class="hero" style="min-height: 30vh;">
-    <div class="hero-bg" style="background-color: #0f172a;"></div> <!-- Solid dark blue background -->
+  <!-- HERO SECTION -->
+  <section class="hero" style="min-height: 40vh;">
+    <!-- Using a slightly different positioning or you can change the image URL for variety -->
+    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1600&q=80'); background-position: center 60%;"></div>
     <div class="hero-overlay"></div>
-    <div class="container hero-content" style="padding-top: 80px;">
-      <h1>Share Your Experience</h1>
-      <p>We'd love to hear about your ride with Lasser Transportation.</p>
+    <div class="container hero-content">
+      <span class="eyebrow">Your Feedback</span>
+      <h1>Write a Review.</h1>
+      <p>We'd love to hear about your experience riding with us.</p>
     </div>
   </section>
 
   <!-- REVIEW FORM SECTION -->
-  <section class="section section-alt">
-    <div class="container text-center">
+  <section class="section">
+    <div class="container">
       
-      <div class="review-form-container">
-        <!-- ACTION URL: Replace with your Formspree link later -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+      <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <h2 style="margin-bottom: 10px; color: #0f172a;">Rate your ride</h2>
+          <p style="color: #475569;">Your reviews help us grow and serve South Florida better.</p>
+        </div>
+
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your review!');">
           
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Maria G." required>
+          <!-- Name Field -->
+          <div style="margin-bottom: 20px;">
+            <label for="reviewer-name" style="display: block; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Full Name</label>
+            <input type="text" id="reviewer-name" name="name" required placeholder="John Doe" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem;" />
           </div>
 
-          <div class="form-group">
-            <label for="email">Your Email (We won't publish this)</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="maria@example.com" required>
+          <!-- Email Field -->
+          <div style="margin-bottom: 20px;">
+            <label for="reviewer-email" style="display: block; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Email Address</label>
+            <input type="email" id="reviewer-email" name="email" required placeholder="john@example.com" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem;" />
           </div>
 
-          <div class="form-group">
-            <label for="rating">Rating</label>
-            <select id="rating" name="rating" class="form-control" required>
-              <option value="5 Stars">&#9733;&#9733;&#9733;&#9733;&#9733; 5 Stars - Excellent</option>
-              <option value="4 Stars">&#9733;&#9733;&#9733;&#9733;&#9734; 4 Stars - Very Good</option>
-              <option value="3 Stars">&#9733;&#9733;&#9733;&#9734;&#9734; 3 Stars - Average</option>
-              <option value="2 Stars">&#9733;&#9733;&#9734;&#9734;&#9734; 2 Stars - Poor</option>
-              <option value="1 Star">&#9733;&#9734;&#9734;&#9734;&#9734; 1 Star - Terrible</option>
+          <!-- Rating Field -->
+          <div style="margin-bottom: 20px;">
+            <label for="reviewer-rating" style="display: block; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Rating</label>
+            <select id="reviewer-rating" name="rating" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem; color: #475569; background-color: #fff;">
+              <option value="5">★★★★★ - Excellent</option>
+              <option value="4">★★★★☆ - Very Good</option>
+              <option value="3">★★★☆☆ - Average</option>
+              <option value="2">★★☆☆☆ - Poor</option>
+              <option value="1">★☆☆☆☆ - Terrible</option>
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="message">Your Review</label>
-            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your trip..." required></textarea>
+          <!-- Review Message Field -->
+          <div style="margin-bottom: 30px;">
+            <label for="reviewer-message" style="display: block; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Your Review</label>
+            <textarea id="reviewer-message" name="message" rows="5" required placeholder="Tell us about your trip..." style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1.1rem; padding: 15px;">Submit Review</button>
+          <!-- Submit Button -->
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer; border: none; font-size: 1.1rem; padding: 14px;">Submit Review</button>
+          </div>
+
         </form>
       </div>
 
+    </div>
+  </section>
+
+  <!-- CTA BANNER (Optional: Kept it for consistency) -->
+  <section class="section section-alt">
+    <div class="container text-center" style="text-align: center; max-width: 800px;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Need another ride?</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 30px;">
+        Ready for your next trip? Reach out to our team today to book your next comfortable and safe journey.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
     </div>
   </section>
 
