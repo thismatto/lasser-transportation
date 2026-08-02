@@ -27,7 +27,6 @@
 
   <!-- HERO SECTION -->
   <section class="hero" style="min-height: 40vh;">
-    <!-- Using a slightly different positioning or you can change the image URL for variety -->
     <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1600&q=80'); background-position: center 60%;"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
@@ -47,7 +46,8 @@
           <p style="color: #475569;">Your reviews help us grow and serve South Florida better.</p>
         </div>
 
-        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your review!');">
+        <!-- FORM CONNECTED TO YOUR FORMSPREE LINK -->
+        <form action="https://formspree.io/f/xdaqqava" method="POST">
           
           <!-- Name Field -->
           <div style="margin-bottom: 20px;">
@@ -65,11 +65,11 @@
           <div style="margin-bottom: 20px;">
             <label for="reviewer-rating" style="display: block; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Rating</label>
             <select id="reviewer-rating" name="rating" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem; color: #475569; background-color: #fff;">
-              <option value="5">★★★★★ - Excellent</option>
-              <option value="4">★★★★☆ - Very Good</option>
-              <option value="3">★★★☆☆ - Average</option>
-              <option value="2">★★☆☆☆ - Poor</option>
-              <option value="1">★☆☆☆☆ - Terrible</option>
+              <option value="5 Stars">★★★★★ - Excellent</option>
+              <option value="4 Stars">★★★★☆ - Very Good</option>
+              <option value="3 Stars">★★★☆☆ - Average</option>
+              <option value="2 Stars">★★☆☆☆ - Poor</option>
+              <option value="1 Star">★☆☆☆☆ - Terrible</option>
             </select>
           </div>
 
@@ -90,9 +90,9 @@
     </div>
   </section>
 
-  <!-- CTA BANNER (Optional: Kept it for consistency) -->
+  <!-- CTA BANNER -->
   <section class="section section-alt">
-    <div class="container text-center" style="text-align: center; max-width: 800px;">
+    <div class="container text-center" style="text-align: center; max-width: 800px; margin: 0 auto;">
       <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Need another ride?</h2>
       <p style="font-size: 1.1rem; margin-bottom: 30px;">
         Ready for your next trip? Reach out to our team today to book your next comfortable and safe journey.
